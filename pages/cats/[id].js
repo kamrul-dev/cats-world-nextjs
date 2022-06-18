@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Loading from '../../components/Loading/Loading';
 
 export default function Cat() {
-    const [cat, setCat] = useState({});
+    const [cat, setCat] = useState(null);
     const router = useRouter();
     const { id } = router.query;
 
@@ -21,8 +20,8 @@ export default function Cat() {
             {
                 cat && (
                     <div className='container mt-5' style={{ display: "flex" }}>
-                        <img src={cat?.image?.url} alt={cat?.image?.alt} />
-                        <div>
+                        <img className='p-4' src={cat?.image?.url} alt={cat?.image?.alt} />
+                        <div className='p-4'>
                             <h1>{cat.name}</h1>
                             <p>{cat.description}</p>
                         </div>
